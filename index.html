@@ -114,14 +114,13 @@
         }
 
         .foto-perfil {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid var(--rosa-claro);
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s;
-            flex-shrink: 0;
+    width: 150px;           /* Dale un tamaño visible */
+    height: 150px;          /* Debe ser igual al ancho */
+    border-radius: 50%;     /* Esto la hace circular */
+    object-fit: cover;      /* Para que no se vea estirada */
+    border: 3px solid white; /* Un borde para que resalte */
+    display: block;         /* Asegura que se muestre */
+}
         }
 
         .foto-perfil:hover { transform: scale(1.1); }
@@ -263,7 +262,7 @@
             <span id="reloj">00d 00h 00m 00s</span>
         </div>
 
-        <img src="Foto1.jpg" alt="Perfil" class="foto-perfil" onclick="verImagen(this.src)">
+        <img src="foto1.jpg" alt="Perfil" class="foto-perfil" onclick="verImagen(this.src)">
         <div class="perfil-info-container">
             <div class="texto-info">
                 <h2>@Feliz 14 de febrero mi amor</h2>
@@ -359,4 +358,5 @@
 </body>
 
 </html>
+
 
