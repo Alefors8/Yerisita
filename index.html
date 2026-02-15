@@ -37,14 +37,13 @@
             top: 0;
             width: 100px;
             height: 100%;
-            pointer-events: none; /* No estorba al hacer click */
+            pointer-events: none;
             z-index: 1;
             overflow: hidden;
         }
         .izquierda { left: 0; }
         .derecha { right: 0; }
 
-        /* Corazones flotantes */
         .corazon-flotante {
             position: absolute;
             color: var(--rosa-claro);
@@ -60,42 +59,38 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        /* --- HEADER ESTILO INSTAGRAM --- */
+        /* --- HEADER MEJORADO --- */
         .perfil-header {
             position: relative;
             z-index: 2;
             background: linear-gradient(135deg, var(--morado-oscuro) 0%, var(--rosa-intenso) 100%);
-            padding: 50px 10% 40px;
+            padding: 80px 10% 40px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            gap: 40px;
+            justify-content: center;
+            text-align: center;
             border-bottom-left-radius: 40px;
             border-bottom-right-radius: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: left;
         }
 
         .contador-tiempo {
-            position: absolute;
-            top: 70px;
-            right: 35px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 15px 25px;
             border-radius: 25px;
             border: 1px solid rgba(255, 109, 159, 0.3);
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
+            margin-bottom: 30px;
+            width: fit-content;
         }
 
         .contador-label {
-            font-size: 1.5em;
+            font-size: 1.2em;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-            opacity: 0.9;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            font-family: 'Dancing Script', cursive;
         }
 
         #reloj {
@@ -103,47 +98,34 @@
             color: var(--rosa-claro);
             font-family: 'Dancing Script', cursive;
             font-weight: bold;
-            font-size: 2.0em;
+            font-size: 2.2em;
         }
 
         .perfil-info-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
             width: 100%;
+            max-width: 600px;
         }
-
-        .foto-perfil {
-    width: 150px;           /* Dale un tamaño visible */
-    height: 150px;          /* Debe ser igual al ancho */
-    border-radius: 50%;     /* Esto la hace circular */
-    object-fit: cover;      /* Para que no se vea estirada */
-    border: 3px solid white; /* Un borde para que resalte */
-    display: block;         /* Asegura que se muestre */
-}
-        }
-
-        .foto-perfil:hover { transform: scale(1.1); }
 
         .texto-info h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5em;
+            font-size: 3em;
             margin: 0;
         }
 
         .texto-info p {
             font-family: 'Dancing Script', cursive;
-            margin: 5px 0 15px;
-            font-size: 2.0em;
+            margin: 5px 0 20px;
+            font-size: 1.8em;
         }
 
         .barra-busqueda {
             padding: 12px 20px;
             border-radius: 25px;
             border: none;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
             outline: none;
+            text-align: center;
         }
 
         /* CUADRÍCULA DE FOTOS */
@@ -167,14 +149,11 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 109, 159, 0.2);
-            backdrop-filter: blur(5px);
-            background: rgba(255, 255, 255, 0.05);
         }
 
         .foto-item:hover {
             transform: scale(1.03);
             box-shadow: 0 0 20px rgba(255, 109, 159, 0.5);
-            border: 1px solid var(--rosa-claro);
         }
 
         .foto-item img {
@@ -200,10 +179,8 @@
             display: none;
             position: fixed;
             z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.9);
             justify-content: center;
             align-items: center;
@@ -211,10 +188,9 @@
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 85vh;
+            max-width: 95%;
+            max-height: 80vh;
             border-radius: 10px;
-            box-shadow: 0 0 30px var(--rosa-claro);
             animation: zoomIn 0.3s;
         }
 
@@ -225,29 +201,34 @@
 
         .cerrar-modal {
             position: absolute;
-            top: 20px;
-            right: 35px;
+            top: 15px; right: 25px;
             color: white;
-            font-size: 50px;
-            font-weight: bold;
+            font-size: 40px;
             cursor: pointer;
         }
 
-        footer { text-align: center; padding: 40px; opacity: 0.6; position: relative; z-index: 2; }
+        footer { text-align: center; padding: 40px; opacity: 0.6; }
 
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .perfil-header { padding: 100px 5% 40px; flex-direction: column; text-align: center; gap: 20px; }
-            .contador-tiempo { top: 20px; right: 50%; transform: translateX(50%); width: 80%; max-width: 300px; }
-            .perfil-info-container { align-items: center; }
-            .decoracion-lateral { width: 40px; } /* Más pequeño en móvil */
+        /* --- MEJORAS RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .perfil-header { padding: 40px 5% 30px; }
+            .texto-info h2 { font-size: 2.2em; }
+            .texto-info p { font-size: 1.5em; }
+            #reloj { font-size: 1.8em; }
+            .decoracion-lateral { width: 30px; }
+            .galeria-fotos { 
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en móvil para que luzcan */
+                gap: 8px; 
+                padding: 20px 10px;
+            }
+            .foto-item { height: 200px; }
         }
 
-        @media (max-width: 600px) {
-            .texto-info h2 { font-size: 2.2em; }
-            .texto-info p { font-size: 1.4em; }
-            .galeria-fotos { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-            .foto-item { height: 180px; }
+        @media (max-width: 480px) {
+            .galeria-fotos { grid-template-columns: repeat(2, 1fr); }
+            .foto-item { height: 160px; }
+            .contador-tiempo { padding: 10px 15px; }
+            #reloj { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -262,7 +243,6 @@
             <span id="reloj">00d 00h 00m 00s</span>
         </div>
 
-        <img src="foto1.jpg" alt="Perfil" class="foto-perfil" onclick="verImagen(this.src)">
         <div class="perfil-info-container">
             <div class="texto-info">
                 <h2>@Feliz 14 de febrero mi amor</h2>
@@ -273,35 +253,26 @@
     </header>
 
     <main class="galeria-fotos">
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)">
-            <img src="foto1.jpg" alt="Foto 1">
-            <div class="overlay">Recuerdo 1 ✨</div>
-        </div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)">
-            <img src="foto2.jpg" alt="Foto 2">
-            <div class="overlay">Recuerdo 2 😍</div>
-        </div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)">
-            <img src="foto3.jpg" alt="Foto 3">
-            <div class="overlay">Recuerdo 3 ☀️</div>
-        </div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto4.jpg"><div class="overlay">Recuerdo 4</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto5.jpg"><div class="overlay">Recuerdo 5</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto6.jpg"><div class="overlay">Recuerdo 6</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto7.jpg"><div class="overlay">Recuerdo 7</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto8.jpg"><div class="overlay">Recuerdo 8</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto9.jpg"><div class="overlay">Recuerdo 9</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto10.jpg"><div class="overlay">Recuerdo 10</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto11.jpg"><div class="overlay">Recuerdo 11</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto12.jpg"><div class="overlay">Recuerdo 12</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto13.jpg"><div class="overlay">Recuerdo 13</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto14.jpg"><div class="overlay">Recuerdo 14</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto15.jpg"><div class="overlay">Recuerdo 15</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto16.jpg"><div class="overlay">Recuerdo 16</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto17.jpg"><div class="overlay">Recuerdo 17</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto18.jpg"><div class="overlay">Recuerdo 18</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto19.jpg"><div class="overlay">Recuerdo 19</div></div>
-        <div class="foto-item" onclick="verImagen(this.querySelector('img').src)"><img src="foto20.jpg"><div class="overlay">Recuerdo 20</div></div></div></div>
+        <div class="foto-item" onclick="verImagen('foto1.jpg')"><img src="foto1.jpg"><div class="overlay">Recuerdo 1 ✨</div></div>
+        <div class="foto-item" onclick="verImagen('foto2.jpg')"><img src="foto2.jpg"><div class="overlay">Recuerdo 2 😍</div></div>
+        <div class="foto-item" onclick="verImagen('foto3.jpg')"><img src="foto3.jpg"><div class="overlay">Recuerdo 3 ☀️</div></div>
+        <div class="foto-item" onclick="verImagen('foto4.jpg')"><img src="foto4.jpg"><div class="overlay">Recuerdo 4</div></div>
+        <div class="foto-item" onclick="verImagen('foto5.jpg')"><img src="foto5.jpg"><div class="overlay">Recuerdo 5</div></div>
+        <div class="foto-item" onclick="verImagen('foto6.jpg')"><img src="foto6.jpg"><div class="overlay">Recuerdo 6</div></div>
+        <div class="foto-item" onclick="verImagen('foto7.jpg')"><img src="foto7.jpg"><div class="overlay">Recuerdo 7</div></div>
+        <div class="foto-item" onclick="verImagen('foto8.jpg')"><img src="foto8.jpg"><div class="overlay">Recuerdo 8</div></div>
+        <div class="foto-item" onclick="verImagen('foto9.jpg')"><img src="foto9.jpg"><div class="overlay">Recuerdo 9</div></div>
+        <div class="foto-item" onclick="verImagen('foto10.jpg')"><img src="foto10.jpg"><div class="overlay">Recuerdo 10</div></div>
+        <div class="foto-item" onclick="verImagen('foto11.jpg')"><img src="foto11.jpg"><div class="overlay">Recuerdo 11</div></div>
+        <div class="foto-item" onclick="verImagen('foto12.jpg')"><img src="foto12.jpg"><div class="overlay">Recuerdo 12</div></div>
+        <div class="foto-item" onclick="verImagen('foto13.jpg')"><img src="foto13.jpg"><div class="overlay">Recuerdo 13</div></div>
+        <div class="foto-item" onclick="verImagen('foto14.jpg')"><img src="foto14.jpg"><div class="overlay">Recuerdo 14</div></div>
+        <div class="foto-item" onclick="verImagen('foto15.jpg')"><img src="foto15.jpg"><div class="overlay">Recuerdo 15</div></div>
+        <div class="foto-item" onclick="verImagen('foto16.jpg')"><img src="foto16.jpg"><div class="overlay">Recuerdo 16</div></div>
+        <div class="foto-item" onclick="verImagen('foto17.jpg')"><img src="foto17.jpg"><div class="overlay">Recuerdo 17</div></div>
+        <div class="foto-item" onclick="verImagen('foto18.jpg')"><img src="foto18.jpg"><div class="overlay">Recuerdo 18</div></div>
+        <div class="foto-item" onclick="verImagen('foto19.jpg')"><img src="foto19.jpg"><div class="overlay">Recuerdo 19</div></div>
+        <div class="foto-item" onclick="verImagen('foto20.jpg')"><img src="foto20.jpg"><div class="overlay">Recuerdo 20</div></div>
     </main>
 
     <div id="miModal" class="modal" onclick="cerrarImagen()">
@@ -312,7 +283,6 @@
     <footer>Hecho por Aleforito para ti ❤️</footer>
 
     <script>
-        // Lógica del Contador
         const fechaInicio = new Date(2023, 6, 2, 0, 0, 0); 
 
         function actualizarContador() {
@@ -327,19 +297,16 @@
         setInterval(actualizarContador, 1000);
         actualizarContador();
 
-        // Crear corazones animados en los costados
         function crearCorazones() {
             const contenedores = [document.getElementById('deco-izq'), document.getElementById('deco-der')];
             const simbolos = ['❤️', '💖', '🌸', '✨'];
-            
             contenedores.forEach(cont => {
-                for (let i = 0; i < 15; i++) {
+                for (let i = 0; i < 12; i++) {
                     let corazon = document.createElement('div');
                     corazon.className = 'corazon-flotante';
                     corazon.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
                     corazon.style.left = Math.random() * 80 + '%';
                     corazon.style.animationDelay = Math.random() * 5 + 's';
-                    corazon.style.fontSize = Math.random() * 20 + 10 + 'px';
                     cont.appendChild(corazon);
                 }
             });
@@ -356,7 +323,5 @@
         }
     </script>
 </body>
-
 </html>
-
 
